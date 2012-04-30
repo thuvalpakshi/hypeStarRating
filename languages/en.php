@@ -12,6 +12,9 @@ $english = array(
 	'hj:starrating:widget:numbertodisplay' => 'Number of items to display',
 	'hj:starrating:widget:types' => 'Types of entities',
 	'hj:starrating:widget:subtypes' => 'Object subtypes',
+	'hj:starrating:widget:description' => 'Most Rated widget',
+
+	'rate' => 'Rate',
 
 );
 
