@@ -10,6 +10,7 @@ if (!$e || !elgg_instanceof($entity)) {
     register_error(elgg_echo('hj:starrating:rate:error'));
     return true;
 }
+
 $owner = elgg_get_logged_in_user_entity();
 
 $starrating = (int) get_input('starrating', 0);

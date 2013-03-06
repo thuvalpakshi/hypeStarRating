@@ -22,7 +22,7 @@ $input = elgg_view('input/dropdown', array(
     'value' => $selected_value,
     'options_values' => $options_values,
     'disabled' => $disabled,
-    'class' => 'hj-starrating-default-select'
+    'class' => 'hj-starrating-default-select hidden'
 ));
 
 $submit = elgg_view('input/submit', array('value' => elgg_echo('rate')));
@@ -31,15 +31,15 @@ $form = elgg_view('input/form', array(
     'body' => $input . $submit,
     'action' => "action/stars/rate?e={$entity->guid}",
     'id' => "hj-starrating-entity-{$entity->guid}",
-    'class' => 'hj-ajaxed-starrating'
+    'class' => 'hj-ajaxed-starrating hidden'
 ));
 
 $stats = elgg_echo('hj:starrating:entity:stats', array($entity_ratings['average'], $options['max'], $entity_ratings['count']));
 
 $html = <<<HTML
-    <div class="hj-starrating-container hidden">
+    <div class="hj-starrating-container">
         $form
-        <div class="hj-starrating-caption">
+        <div class="hj-starrating-caption hidden">
             $stats
         </div>
     </div>
@@ -47,8 +47,3 @@ HTML;
 
 
 echo $html;
-?>
-<script type="text/javascript">
-	elgg.register_hook_handler('success', 'hj:framework:ajax', hj.starrating.base.init, 500);
-	elgg.trigger_hook('success', 'hj:framework:ajax');
-</script>

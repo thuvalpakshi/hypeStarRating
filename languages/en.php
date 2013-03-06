@@ -16,6 +16,14 @@ $english = array(
 
 	'rate' => 'Rate',
 
+	'edit:plugin:hypestarrating:params[stars_type_subtype_pairs]' => 'Rateable entity types/subtypes',
+	'edit:plugin:hypestarrating:hint:stars_type_subtype_pairs' => 'Types of entities that can be rated using star rating widget',
+	
+	'edit:plugin:hypestarrating:label' => 'Verbose score for %s',
+
+	"edit:plugin:hypestarrating:hint:scores" => 'Please enter description corresponding to each score. If you would like to use a scale of 1 to 5, enter values corresponding to those scores, and leave the rest blank.',
+	
+
 );
 
 add_translation("en", $english);
