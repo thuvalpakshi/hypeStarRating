@@ -18,7 +18,7 @@ function hj_starrating_init() {
 
 	$plugin = 'hypeStarRating';
 
-	// Make sure hypeFramework is active and precedes hypeMaps in the plugin list
+	// Make sure hypeFramework is active and precedes hypeStarRating in the plugin list
 	if (!is_callable('hj_framework_path_shortcuts')) {
 		register_error(elgg_echo('framework:error:plugin_order', array($plugin)));
 		disable_plugin($plugin);

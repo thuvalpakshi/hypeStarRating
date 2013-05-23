@@ -12,7 +12,7 @@ if (!$types || $types == 'all') {
 }
 
 if ($types == 'object') {
-$subtypes = $widget->subtype_display;
+	$subtypes = $widget->subtype_display;
 
 	if (!$subtypes || $subtypes == 'all') {
 		$subtypes = null;
@@ -57,7 +57,34 @@ $view_params = array(
 $entities = elgg_get_entities_from_annotation_calculation($options);
 
 elgg_push_context('starrating');
-$content = elgg_view_entity_list($entities, $view_params);
+
+foreach ($entities as $entity) {
+
+	$title = elgg_view('output/url', array(
+		'text' => (isset($entity->title)) ? $entity->title : $entity->name,
+		'href' => $entity->getURL(),
+		'is_trusted' => true
+			));
+
+	if (!empty($entity->description)) {
+		$desc = elgg_view('output/longtext', array(
+			'value' => elgg_get_excerpt($entity->description)
+				));
+	} else {
+		$desc = '';
+	}
+
+	$icon = elgg_view_entity_icon($entity, 'small');
+	$rating = elgg_view('output/starrating', array(
+		'entity' => $entity
+			));
+
+	$content .= elgg_view_image_block($icon, $title . $desc, array(
+		'image_alt' => $rating
+			));
+
+	$content = elgg_view_entity_list($entities, $view_params);
+}
 elgg_pop_context();
 
 echo $content;

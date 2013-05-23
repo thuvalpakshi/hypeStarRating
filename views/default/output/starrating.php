@@ -5,9 +5,9 @@ if (!$entity) {
     return true;
 }
 
-elgg_load_css('hj.starrating.base');
-elgg_load_js('hj.starrating.lib');
-elgg_load_js('hj.starrating.base');
+elgg_load_css('starrating.base.css');
+elgg_load_js('starrating.widget.js');
+elgg_load_js('starrating.base.js');
 
 $options = hj_starrating_get_rating_values();
 $options_values = $options['values'];
@@ -31,7 +31,7 @@ $form = elgg_view('input/form', array(
     'body' => $input . $submit,
     'action' => "action/stars/rate?e={$entity->guid}",
     'id' => "hj-starrating-entity-{$entity->guid}",
-    'class' => 'hj-ajaxed-starrating hidden'
+    'class' => 'hj-ajaxed-starrating clearfix'
 ));
 
 $stats = elgg_echo('hj:starrating:entity:stats', array($entity_ratings['average'], $options['max'], $entity_ratings['count']));

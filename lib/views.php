@@ -1,3 +1,3 @@
 <?php
 
-elgg_extend_view('object/summary/extend', 'hj/starrating/widget_rating');
+elgg_extend_view('object/summary/extend', 'framework/starrating/widget_rating');

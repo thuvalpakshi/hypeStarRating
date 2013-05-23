@@ -32,7 +32,7 @@ $form = elgg_view('input/form', array(
 	'body' => $input . $submit,
 	'action' => "action/stars/rate?e={$entity->guid}",
 	'data-uid' => $entity->guid,
-	'class' => 'hj-ajaxed-starrating'
+	'class' => 'hj-ajaxed-starrating clearfix'
 		));
 
 $stats = elgg_echo('hj:starrating:entity:stats', array($entity_ratings['average'], $options['max'], $entity_ratings['count']));
