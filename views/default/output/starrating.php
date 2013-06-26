@@ -25,7 +25,7 @@ $input = elgg_view('input/dropdown', array(
     'class' => 'hj-starrating-default-select hidden'
 ));
 
-$submit = elgg_view('input/submit', array('value' => elgg_echo('rate')));
+$submit = elgg_view('input/submit', array('value' => elgg_echo('rate'), 'class' => 'hidden'));
 
 $form = elgg_view('input/form', array(
     'body' => $input . $submit,

@@ -43,16 +43,10 @@ $options = array(
 	'annotation_name' => 'starrating',
 	'calculation' => 'avg',
 	'order_by' => 'annotation_calculation desc',
+	'limit' => 10
 );
 
 $target = "hj-starrating-$widget->guid";
-$view_params = array(
-	'full_view' => false,
-	'list_id' => $target,
-	'list_class' => 'hj-view-list',
-	'item_class' => 'hj-view-entity elgg-state-draggable',
-	'limit' => $limit,
-);
 
 $entities = elgg_get_entities_from_annotation_calculation($options);
 
@@ -79,12 +73,12 @@ foreach ($entities as $entity) {
 		'entity' => $entity
 			));
 
-	$content .= elgg_view_image_block($icon, $title . $desc, array(
+	$list .= '<li>' . elgg_view_image_block($icon, $title . $desc, array(
 		'image_alt' => $rating
-			));
+			)) . '</li>';
 
-	$content = elgg_view_entity_list($entities, $view_params);
+	//$content = elgg_view_entity_list($entities, $view_params);
 }
 elgg_pop_context();
 
-echo $content;
+echo '<ul class="elgg-list elgg-list-most-rated">' . $list . '</ul>';
